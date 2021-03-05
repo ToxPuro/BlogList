@@ -1,10 +1,13 @@
 const express = require('express')
 const app = express()
+require('express-async-errors')
 const mongoose = require("mongoose")
 const cors = require('cors')
 const blogsRouter = require('./controllers/blogs')
 const config = require('./utils/config')
+const logger = require('./utils/logger')
 const morgan = require('morgan')
+const middleware = require('./utils/middleware')
 
 const url= config.MONGODB_URL
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
@@ -20,5 +23,7 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :b
 app.use(cors())
 app.use(express.json())
 app.use('/api/blogs', blogsRouter)
+app.use(middleware.errorHandler)
+
 
 module.exports = app

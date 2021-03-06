@@ -1,8 +1,9 @@
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYwNDM3Zjk3Y2MxZWYyMzVhMjliYzIzNyIsImlhdCI6MTYxNTAzNjg1NX0.pd8BLJk1yZS-5P3azlFYSQOMhsjimfVLaTq30UjcZEU
 
 {
-    "title": "Recipes",
+    "title": "TokenTest",
     "author": "Max Italiano",
     "url": "https://Max'sCookingRecipes",
     "likes": 10
